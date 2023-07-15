@@ -39,6 +39,11 @@ export class LocalesComercialesService {
     );
   }
 
+  clearShops(): void {
+    this.shops = [];
+    this.shopsSubject.next(this.shops);
+  }
+
   addShop(shop: any): Observable<any> {
     const headers = this.getAuthHeader();
 

@@ -35,18 +35,20 @@ public class UsersController {
         ShopModel shopModel = shopRepository.findById(createUserDTO.getShopModel().getId())
                 .orElseThrow(() -> new IllegalArgumentException("Local no encontrado"));
 
-        Set<RoleModel> roles = createUserDTO.getRoles().stream()
-                .map(role -> RoleModel.builder()
-                        .name(ERole.valueOf(role))
-                        .build())
-                .collect(Collectors.toSet());
+        //Set<RoleModel> roles = createUserDTO.getRoles().stream()
+        //        .map(role -> RoleModel.builder()
+        //                .name(ERole.valueOf(role))
+        //                .build())
+        //        .collect(Collectors.toSet());
 
 
         UserModel userModel = UserModel.builder()
                 .username(createUserDTO.getUsername())
                 .password(passwordEncoder.encode(createUserDTO.getPassword()))
                 .email(createUserDTO.getEmail())
-                .roles(roles)
+                .roles(Set.of(RoleModel.builder()
+                        .name(ERole.USER_LOCAL)
+                        .build()))
                 .shopModel(shopModel)
                 .build();
 

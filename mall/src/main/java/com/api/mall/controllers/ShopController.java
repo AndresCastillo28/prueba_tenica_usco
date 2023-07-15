@@ -43,7 +43,7 @@ public class ShopController {
     private IActionLogRepository actionLogRepository;
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('ADMIN', 'VIGILANTE')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'VIGILANTE', 'USER_LOCAL')")
     public ArrayList<ShopModel> getShops() {
         return this.shopService.getShops();
     }

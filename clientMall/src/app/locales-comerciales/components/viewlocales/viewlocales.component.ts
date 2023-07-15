@@ -15,7 +15,6 @@ import { CategoryService } from '../../services/category.service';
 })
 export class ViewlocalesComponent {
   shops: any[] = [];
-  private localesComercialesService: LocalesComercialesService;
   selectedShop: any = {};
   updateForm!: FormGroup;
   categoriesData: string[] = [];
@@ -25,7 +24,7 @@ export class ViewlocalesComponent {
   private categoryService = inject(CategoryService);
 
   constructor(
-    localesComercialesService: LocalesComercialesService,
+    private localesComercialesService: LocalesComercialesService,
     private formBuilder: FormBuilder
   ) {
     this.localesComercialesService = localesComercialesService;
