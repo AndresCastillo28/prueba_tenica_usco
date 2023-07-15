@@ -1,0 +1,100 @@
+<form
+  [formGroup]="tiendaForm"
+  (ngSubmit)="onSubmit()"
+  class="border p-3 rounded shadow"
+  autocomplete="off"
+>
+  <div class="form-group">
+    <label for="nombreNegocio">Nombre del Negocio</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nombreNegocio"
+      formControlName="nombreNegocio"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="ubicacion">Ubicación</label>
+    <input
+      type="text"
+      class="form-control"
+      id="ubicacion"
+      formControlName="ubicacion"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="representanteLegal">Representante Legal</label>
+    <input
+      type="text"
+      class="form-control"
+      id="representanteLegal"
+      formControlName="representanteLegal"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="telefonoContacto">Teléfono de Contacto</label>
+    <input
+      type="text"
+      class="form-control"
+      id="telefonoContacto"
+      formControlName="telefonoContacto"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="estado">Estado</label>
+    <select class="form-control" id="estado" formControlName="estado">
+      <option value="">Selecciona un estado</option>
+      <option *ngFor="let estado of estados" [value]="estado">
+        {{ estado }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="categoria">Categoría</label>
+    <select
+      class="form-control"
+      id="categoria"
+      formControlName="categoria"
+      (change)="onCategoriaChange()"
+    >
+      <option value="">Selecciona una categoría</option>
+      <option *ngFor="let categoria of categoriesData" [value]="categoria">
+        {{ categoria }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="subCategoria">Subcategoría</label>
+    <select
+      class="form-control"
+      id="subCategoria"
+      formControlName="subCategoria"
+    >
+      <option value="">Selecciona una subcategoría</option>
+      <option
+        *ngFor="
+          let subcategoria of subcategorias[tiendaForm.get('categoria')!.value]
+        "
+        [value]="subcategoria.id"
+      >
+        {{ subcategoria.nombre }}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-2" [disabled]="isLoading">
+    <div *ngIf="isLoading">
+      <div class="spinner-border spinner-border-sm me-2" role="status">
+        <span class="visually-hidden">Enviando...</span>
+      </div>
+      <span>Enviando...</span>
+    </div>
+    <span *ngIf="!isLoading">Enviar</span>
+  </button>
+</form>

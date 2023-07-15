@@ -1,0 +1,107 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between">
+    <h1 class="my-4">Dashboard</h1>
+    <div class="d-flex align-items-center">
+      <button
+        type="button"
+        class="btn btn-primary btn-sm me-2"
+        data-bs-toggle="modal"
+        data-bs-target="#formUser"
+      >
+        Crear Nuevo Usuario
+      </button>
+      <button class="btn btn-danger btn-sm" (click)="onLogout()">
+        Cerrar sesion
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <app-form-local-comercial />
+    </div>
+    <div class="col-6">
+      
+      <app-viewlocales />
+      <!-- <div
+        class="modal fade"
+        id="formUser"
+        tabindex="-1"
+        aria-labelledby="formUser"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="form">Modal title</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                  <label for="username">Nombre de usuario</label>
+                  <input
+                    type="text"
+                    id="username"
+                    formControlName="username"
+                    class="form-control"
+                  />
+                  
+                </div>
+      
+                <div class="mb-3">
+                  <label for="email">Correo electrónico</label>
+                  <input
+                    type="email"
+                    id="email"
+                    formControlName="email"
+                    class="form-control"
+                  />
+                </div>
+      
+                <div class="mb-3">
+                  <label for="password">Contraseña</label>
+                  <input
+                    type="password"
+                    id="password"
+                    formControlName="password"
+                    class="form-control"
+                  />
+                </div>
+      
+                <div class="mb-3">
+                  <label for="selectedLocale">Local</label>
+                  <select
+                    id="selectedLocale"
+                    formControlName="selectedLocale"
+                    class="form-control"
+                  >
+                    <option value="">Seleccione un local</option>
+                    <option *ngFor="let local of locales" [value]="local">
+                      {{ local }}
+                    </option>
+                  </select>
+                </div>
+      
+              </form>
+            </div>
+      
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Guardar</button> 
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
